@@ -1,5 +1,4 @@
 import { InfoCard } from './InfoCard';
-import { PieChart } from './PieChart';
 import { Calculator, Users, TrendingUp } from 'lucide-react';
 
 /**
