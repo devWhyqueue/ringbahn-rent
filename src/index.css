@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-slate-900;
+    @apply font-sans leading-relaxed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .cost-card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-200 p-6;
+    @apply hover:shadow-md transition-all duration-300;
+  }
+  
+  .cost-card-gradient {
+    @apply bg-gradient-to-br from-slate-50 to-slate-100;
+  }
+  
+  .person-cost-card {
+    @apply rounded-xl p-6 shadow-md border-2;
+    @apply hover:shadow-lg transition-all duration-300;
+    @apply transform hover:-translate-y-1;
+  }
+  
+  .info-card {
+    @apply rounded-xl p-6 shadow-sm border;
+    @apply hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .summary-card {
+    @apply rounded-xl p-6 shadow-sm border;
+    @apply hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .highlight-amount {
+    @apply bg-gradient-to-r from-yellow-100 to-amber-100;
+    @apply px-2 py-1 rounded-md text-sm font-semibold;
+    @apply border border-yellow-200;
+  }
+  
+  .highlight-total {
+    @apply bg-gradient-to-r from-green-100 to-emerald-100;
+    @apply px-3 py-1.5 rounded-lg text-base font-bold;
+    @apply border border-green-200;
+  }
+  
+  .section-divider {
+    @apply border-t border-slate-200 my-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .cost-card,
+  .person-cost-card,
+  .info-card,
+  .summary-card {
+    @apply bg-white border-gray-400;
+  }
+  
+  .highlight-amount,
+  .highlight-total {
+    @apply bg-gray-200;
+  }
+}
