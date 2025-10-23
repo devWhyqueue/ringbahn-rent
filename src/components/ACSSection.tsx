@@ -254,9 +254,6 @@ export function ACSSection() {
                 <strong>Classification:</strong> Warmwasserspiegel Class D. To reach Class C, 
                 reduce to ~43 l/person/day (≈4,5% less).
               </p>
-              <p className="text-xs text-green-700">
-                <strong>Practical tip:</strong> An economy shower head can cut hot water usage by up to 50%.
-              </p>
             </div>
           </div>
         </div>
