@@ -37,7 +37,7 @@ An annual auxiliary cost statement (ACS) from the landlord covers operating cost
 
 ### ACS 2024
 
-- Document: [Nebenkostenabrechnung 2024 (PDF)](./Nebenkostenabrechnung%202024.pdf)
+- Document: [Nebenkostenabrechnung 2024 (PDF)](/ringbahn-rent/Nebenkostenabrechnung%202024.pdf)
 - Requested back pay for 2024: **1.552,89€**
 
 #### Operating costs
