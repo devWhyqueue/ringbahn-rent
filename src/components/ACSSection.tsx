@@ -41,7 +41,7 @@ export function ACSSection() {
           
           <div className="text-sm text-slate-600">
             <a 
-              href="/Nebenkostenabrechnung%202024.pdf" 
+              href="/ringbahn-rent/Nebenkostenabrechnung%202024.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 underline inline-flex items-center gap-1"
