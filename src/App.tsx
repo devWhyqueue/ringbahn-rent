@@ -8,8 +8,9 @@ import { InfoCard } from './components/InfoCard';
 import { ACSSection } from './components/ACSSection';
 import { MoneySavingTips } from './components/MoneySavingTips';
 import { PieChart } from './components/PieChart';
+import { RentReduction } from './components/RentReduction';
 import { Tabs, Tab, TabPanel } from './components/Tab';
-import { Users, HelpCircle, TrendingUp, Lightbulb } from 'lucide-react';
+import { Users, HelpCircle, TrendingUp, Lightbulb, Home } from 'lucide-react';
 
 /**
  * Main application component
@@ -42,6 +43,13 @@ function App() {
                   icon={<Lightbulb className="w-4 h-4" />}
                   isActive={activeTab === 'tips'}
                   onClick={() => setActiveTab('tips')}
+                />
+                <Tab
+                  id="reduction"
+                  label="Rent Reduction"
+                  icon={<Home className="w-4 h-4" />}
+                  isActive={activeTab === 'reduction'}
+                  onClick={() => setActiveTab('reduction')}
                 />
               </div>
             </Tabs>
@@ -88,6 +96,13 @@ function App() {
                   the net cold rent is split by weight. Operating costs, heating, internet, electricity, 
                   and broadcasting contribution are split equally.
                 </p>
+                <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                  <p className="text-sm text-blue-800">
+                    <strong>Note:</strong> These amounts include a monthly proportion of the broadcasting contribution 
+                    (Rundfunkbeitrag) that we have been paying when the bill arrives. I recommend changing this 
+                    and including it into the monthly rent for better cash flow management.
+                  </p>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <PersonCostCard
                     name="Aziz"
@@ -233,6 +248,10 @@ function App() {
 
           <TabPanel isActive={activeTab === 'tips'}>
             <MoneySavingTips />
+          </TabPanel>
+
+          <TabPanel isActive={activeTab === 'reduction'}>
+            <RentReduction />
           </TabPanel>
         </main>
         
