@@ -9,8 +9,9 @@ import { ACSSection } from './components/ACSSection';
 import { MoneySavingTips } from './components/MoneySavingTips';
 import { PieChart } from './components/PieChart';
 import { RentReduction } from './components/RentReduction';
+import { NewContracts } from './components/NewContracts';
 import { Tabs, Tab, TabPanel } from './components/Tab';
-import { Users, HelpCircle, TrendingUp, Lightbulb, Home } from 'lucide-react';
+import { Users, HelpCircle, TrendingUp, Lightbulb, Home, FileText } from 'lucide-react';
 
 /**
  * Main application component
@@ -27,9 +28,9 @@ function App() {
         
         <main className="max-w-4xl mx-auto px-6 py-12">
           {/* Tab Navigation */}
-          <div className="flex justify-center mb-8">
+          <div className="mb-8">
             <Tabs>
-              <div className="flex gap-2 bg-slate-100 p-1 rounded-lg">
+              <div className="flex flex-wrap gap-2 bg-slate-100 p-1 rounded-lg justify-center">
                 <Tab
                   id="rent"
                   label="Rent Analysis"
@@ -50,6 +51,13 @@ function App() {
                   icon={<Home className="w-4 h-4" />}
                   isActive={activeTab === 'reduction'}
                   onClick={() => setActiveTab('reduction')}
+                />
+                <Tab
+                  id="contracts"
+                  label="New Contracts"
+                  icon={<FileText className="w-4 h-4" />}
+                  isActive={activeTab === 'contracts'}
+                  onClick={() => setActiveTab('contracts')}
                 />
               </div>
             </Tabs>
@@ -252,6 +260,10 @@ function App() {
 
           <TabPanel isActive={activeTab === 'reduction'}>
             <RentReduction />
+          </TabPanel>
+
+          <TabPanel isActive={activeTab === 'contracts'}>
+            <NewContracts />
           </TabPanel>
         </main>
         

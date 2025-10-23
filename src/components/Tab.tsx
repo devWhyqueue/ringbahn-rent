@@ -17,7 +17,7 @@ export function Tab({ id, label, icon, isActive, onClick }: TabProps) {
       id={id}
       onClick={onClick}
       className={`
-        flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200
+        flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200
         ${isActive 
           ? 'bg-blue-600 text-white shadow-md' 
           : 'bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-800 border border-slate-200'
