@@ -8,10 +8,9 @@ import { InfoCard } from './components/InfoCard';
 import { ACSSection } from './components/ACSSection';
 import { MoneySavingTips } from './components/MoneySavingTips';
 import { PieChart } from './components/PieChart';
-import { RentReduction } from './components/RentReduction';
 import { NewContracts } from './components/NewContracts';
 import { Tabs, Tab, TabPanel } from './components/Tab';
-import { Users, HelpCircle, TrendingUp, Lightbulb, Home, FileText } from 'lucide-react';
+import { Users, TrendingUp, Lightbulb, FileText, ScrollText } from 'lucide-react';
 
 /**
  * Main application component
@@ -33,24 +32,17 @@ function App() {
               <div className="flex flex-wrap gap-2 bg-slate-100 p-1 rounded-lg justify-center">
                 <Tab
                   id="rent"
-                  label="Rent Analysis"
+                  label="Rent"
                   icon={<Users className="w-4 h-4" />}
                   isActive={activeTab === 'rent'}
                   onClick={() => setActiveTab('rent')}
                 />
                 <Tab
-                  id="tips"
-                  label="Money-Saving Tips"
-                  icon={<Lightbulb className="w-4 h-4" />}
-                  isActive={activeTab === 'tips'}
-                  onClick={() => setActiveTab('tips')}
-                />
-                <Tab
-                  id="reduction"
-                  label="Rent Reduction"
-                  icon={<Home className="w-4 h-4" />}
-                  isActive={activeTab === 'reduction'}
-                  onClick={() => setActiveTab('reduction')}
+                  id="increases"
+                  label="Rent Changes"
+                  icon={<TrendingUp className="w-4 h-4" />}
+                  isActive={activeTab === 'increases'}
+                  onClick={() => setActiveTab('increases')}
                 />
                 <Tab
                   id="contracts"
@@ -58,6 +50,20 @@ function App() {
                   icon={<FileText className="w-4 h-4" />}
                   isActive={activeTab === 'contracts'}
                   onClick={() => setActiveTab('contracts')}
+                />
+                <Tab
+                  id="acs"
+                  label="ACS 2024"
+                  icon={<ScrollText className="w-4 h-4" />}
+                  isActive={activeTab === 'acs'}
+                  onClick={() => setActiveTab('acs')}
+                />
+                <Tab
+                  id="tips"
+                  label="Money-Saving Tips"
+                  icon={<Lightbulb className="w-4 h-4" />}
+                  isActive={activeTab === 'tips'}
+                  onClick={() => setActiveTab('tips')}
                 />
               </div>
             </Tabs>
@@ -72,17 +78,19 @@ function App() {
                 Total Monthly Rent
               </h1>
               <p className="text-sm text-slate-600 mb-6 text-center">
-                Valid for November 2024 through April 2025
+                Valid from December 2025 (after new electricity contract)
               </p>
               <SummaryCard
                 title="Monthly Rent Breakdown"
-                totalAmount="1.624,29€"
+                totalAmount="1.775,49€"
                 items={[
-                  { label: 'Net cold rent', amount: '1.159,95€' },
-                  { label: 'Operating costs', amount: '145,00€' },
-                  { label: 'Heating', amount: '200,00€' },
+                  { label: 'Net cold rent', amount: '1.183,15€' },
+                  { label: 'Operating costs', amount: '186,00€' },
+                  { label: 'Heating', amount: '250,00€' },
+                  { label: 'Warm water', amount: '20,00€' },
+                  { label: 'Auxiliary house', amount: '15,00€' },
                   { label: 'Internet', amount: '37,98€' },
-                  { label: 'Electricity', amount: '63,00€' },
+                  { label: 'Electricity', amount: '65,00€' },
                   { label: 'Broadcasting contribution', amount: '18,36€' },
                 ]}
                 color="blue"
@@ -111,22 +119,22 @@ function App() {
                     and including it into the monthly rent for better cash flow management.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <PersonCostCard
                     name="Aziz"
-                    amount="502,77€"
+                    amount="552,40€"
                     percentage="30%"
                     color="blue"
                   />
                   <PersonCostCard
                     name="Tushar"
-                    amount="560,76€"
+                    amount="611,55€"
                     percentage="35%"
                     color="green"
                   />
                   <PersonCostCard
                     name="Yannik"
-                    amount="560,76€"
+                    amount="611,55€"
                     percentage="35%"
                     color="purple"
                   />
@@ -134,136 +142,112 @@ function App() {
               </InfoCard>
             </section>
 
-            {/* Rent Increases */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">
-                Rent Increases
-              </h2>
-              
-              {/* Electricity Increase from May 2025 */}
-              <div className="mb-6">
-                <InfoCard 
-                  title="Electricity Increase from May 2025" 
-                  type="warning"
-                  icon={<TrendingUp className="w-5 h-5" />}
-                >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-slate-600 mb-1">Vattenfall adjusted electricity pricing</p>
-                      <p className="text-lg font-semibold text-slate-800">63€ → 114€ (+51€)</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm text-slate-600">Per person monthly:</p>
-                      <p className="text-lg font-semibold text-orange-600">+17€</p>
-                    </div>
-                  </div>
-                </InfoCard>
-              </div>
+            </div>
+          </TabPanel>
 
-              {/* Rent Increase from November 2025 */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <InfoCard 
-                  title="VDLB Rent Increase from November 2025" 
-                  type="warning"
-                  icon={<TrendingUp className="w-5 h-5" />}
-                >
-                  <div className="mb-4">
-                    <h4 className="text-lg font-semibold text-slate-800 mb-3 text-center">Total Monthly Increase</h4>
-                    <PieChart 
-                      data={[
-                        { label: 'Operating Costs', value: 41.00, color: '#f97316' },
-                        { label: 'Net Cold Rent', value: 23.20, color: '#3b82f6' },
-                        { label: 'Heating', value: 50.00, color: '#dc2626' },
-                        { label: 'Warm Water', value: 20.00, color: '#059669' },
-                        { label: 'Auxiliary House', value: 15.00, color: '#7c3aed' }
-                      ]}
-                      total={149.20}
-                    />
-                  </div>
-                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                    <p className="text-sm text-orange-800 text-center">
-                      <strong>Total increase:</strong> +149,20€ per month
-                    </p>
-                  </div>
-                </InfoCard>
+          <TabPanel isActive={activeTab === 'increases'}>
+            <div className="space-y-8">
+              <section>
+                <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+                  Rent Changes
+                </h2>
 
-                <InfoCard 
-                  title="New Per-Person Rent from November 2025" 
-                  type="info"
-                  icon={<Users className="w-5 h-5" />}
-                >
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-600">Aziz (30%):</span>
-                      <span className="font-semibold text-blue-600">568,73€ (+65,96€)</span>
+                <div className="grid grid-cols-1 gap-4">
+                  <InfoCard 
+                    title="Electricity Reduction from December 2025" 
+                    type="info"
+                    icon={<TrendingUp className="w-5 h-5" />}
+                  >
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-slate-600">Old monthly payment:</span>
+                        <span className="font-semibold text-slate-800">114€</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-slate-600">New monthly payment:</span>
+                        <span className="font-semibold text-green-600">65€</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-slate-600">Household difference:</span>
+                        <span className="font-semibold text-green-600">-49€</span>
+                      </div>
+                      <div className="border-t pt-3 mt-3 text-sm text-slate-600">
+                        <div className="flex justify-between items-center">
+                          <span>Per person monthly reduction:</span>
+                          <span className="font-semibold text-blue-600">-16,33€</span>
+                        </div>
+                        <p className="mt-2 text-xs text-slate-500">
+                          Applies equally to Aziz, Tushar, and Yannik.
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-600">Tushar (35%):</span>
-                      <span className="font-semibold text-green-600">627,88€ (+67,12€)</span>
+                  </InfoCard>
+
+                  <InfoCard 
+                    title="VDLB Rent Increase from November 2025" 
+                    type="warning"
+                    icon={<TrendingUp className="w-5 h-5" />}
+                  >
+                    <div className="mb-4">
+                      <h4 className="text-lg font-semibold text-slate-800 mb-3 text-center">Total Monthly Increase</h4>
+                      <PieChart 
+                        data={[
+                          { label: 'Operating Costs', value: 41.00, color: '#f97316' },
+                          { label: 'Net Cold Rent', value: 23.20, color: '#3b82f6' },
+                          { label: 'Heating', value: 50.00, color: '#dc2626' },
+                          { label: 'Warm Water', value: 20.00, color: '#059669' },
+                          { label: 'Auxiliary House', value: 15.00, color: '#7c3aed' }
+                        ]}
+                        total={149.20}
+                      />
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-slate-600">Yannik (35%):</span>
-                      <span className="font-semibold text-purple-600">627,88€ (+67,12€)</span>
-                    </div>
-                    <div className="border-t pt-3 mt-3">
-                      <p className="text-xs text-slate-600">
-                        Includes +42€ shared costs + +17€ electricity + individual net cold rent increases
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                      <p className="text-sm text-orange-800 text-center">
+                        <strong>Total increase:</strong> +149,20€ per month
                       </p>
                     </div>
-                  </div>
-                </InfoCard>
-              </div>
-            </section>
+                  </InfoCard>
+                </div>
 
-            {/* Annual Cost Statement */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">
-                Annual Cost Statement (Nebenkostenabrechnung)
-              </h2>
-              <ACSSection />
-            </section>
+                <div className="mb-6">
+                  <InfoCard 
+                    title="Electricity Increase from May 2025" 
+                    type="warning"
+                    icon={<TrendingUp className="w-5 h-5" />}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-slate-600 mb-1">Vattenfall adjusted electricity pricing</p>
+                        <p className="text-lg font-semibold text-slate-800">63€ → 114€ (+51€)</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-slate-600">Per person monthly:</p>
+                        <p className="text-lg font-semibold text-orange-600">+17€</p>
+                      </div>
+                    </div>
+                  </InfoCard>
+                </div>
+              </section>
+            </div>
+          </TabPanel>
 
-            {/* Things that need clarification */}
-            <section>
-              <InfoCard 
-                title="Things that need clarification" 
-                type="warning"
-                icon={<HelpCircle className="w-5 h-5" />}
-              >
-                <ul className="space-y-4">
-                  <li>
-                    <p>
-                      The ecotrend ista website shows heating and warm water usage, starting from May 2024. 
-                      For completeness, I fill in the missing months from January to April with values from 2025. 
-                      While yearly heating usage seems comparable to ACS 2024, the warm water kWh seem off. 
-                      The sum of Ista portal values is about 2700 kWh but our ACS 2024 shows 5886,23 kWh. 
-                      How can this be explained?
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Although m³ usage of warm water is the same as in 2022, the kWh usage exploded. 
-                      Starting from 457,07 kWh in 2022, with 1316,15 kwH in 2023 up to 5886,23 kwH in 2024. 
-                      How can this be explained?
-                    </p>
-                  </li>
-                </ul>
-              </InfoCard>
-            </section>
+          <TabPanel isActive={activeTab === 'contracts'}>
+            <NewContracts />
+          </TabPanel>
 
+          <TabPanel isActive={activeTab === 'acs'}>
+            <div className="space-y-8">
+              <section>
+                <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">
+                  Annual Cost Statement (Nebenkostenabrechnung)
+                </h2>
+                <ACSSection />
+              </section>
             </div>
           </TabPanel>
 
           <TabPanel isActive={activeTab === 'tips'}>
             <MoneySavingTips />
-          </TabPanel>
-
-          <TabPanel isActive={activeTab === 'reduction'}>
-            <RentReduction />
-          </TabPanel>
-
-          <TabPanel isActive={activeTab === 'contracts'}>
-            <NewContracts />
           </TabPanel>
         </main>
         
